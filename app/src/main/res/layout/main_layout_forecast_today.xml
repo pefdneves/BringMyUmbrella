@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_location"
+        style="@style/text_style_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_temperature_today"
+        android:text="@string/no_info_available" />
+
+    <TextView
+        android:id="@+id/tv_temperature_today"
+        style="@style/text_style_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_forecast_today"
+        android:text="@string/no_info_available" />
+
+    <TextView
+        android:id="@+id/tv_forecast_today"
+        style="@style/text_style_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/no_info_available" />
+</RelativeLayout>

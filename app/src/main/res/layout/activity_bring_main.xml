@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srl_pull_to_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/main_activity_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/illustration_few_clouds_day"
+        android:orientation="vertical"
+        tools:context=".ui.mainscreen.BringMainActivity">
+
+        <LinearLayout
+            style="@style/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="right"
+                android:layout_marginTop="15sp"
+                android:layout_marginEnd="5sp"
+                android:contentDescription="@string/settings"
+                android:src="@drawable/settings"
+                android:tint="@android:color/white" />
+
+            <include
+                layout="@layout/main_layout_status_today"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+            <include
+                layout="@layout/main_layout_forecast_today"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="1"
+            android:background="@drawable/layout_round_corners"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/text_style_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/iv_tomorrow_status"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/tomorrow" />
+
+                <ImageView
+                    android:id="@+id/iv_tomorrow_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10sp"
+                    android:contentDescription="@string/tomorrow"
+                    android:src="@drawable/icons8_lost_and_found_52" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <include layout="@layout/separator" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/text_style_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/iv_after_status"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/after_tomorrow" />
+
+                <ImageView
+                    android:id="@+id/iv_after_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10sp"
+                    android:contentDescription="@string/after_tomorrow"
+                    android:src="@drawable/icons8_lost_and_found_52" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
