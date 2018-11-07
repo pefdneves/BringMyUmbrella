@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.pefdneves.bringmyumbrella.model.local.database.DayForecast;
 import com.pefdneves.bringmyumbrella.utils.NetworkUtils;
+import com.pefdneves.bringmyumbrella.utils.preferences.MySharedPreferences;
 
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class DayForecastRepository implements DataSource {
 
     private final DataSource mRemoteDataSource;
     private final DataSource mLocalDataSource;
+
+    @Inject
+    MySharedPreferences mySharedPreferences;
 
     @Inject
     DayForecastRepository(@Remote DataSource remoteDataSource,
@@ -40,6 +44,7 @@ public class DayForecastRepository implements DataSource {
                 public void onLoadForecastsLoaded(List<DayForecast> forecasts) {
                     deleteForecasts();
                     insertDayForecasts(forecasts);
+                    mySharedPreferences.setLocation(forecasts.get(0).getLocation());
                     loadDayForecastsCallback.onLoadForecastsLoaded(forecasts);
                 }
 
