@@ -25,11 +25,17 @@ allprojects {
 // Define versions in a single place
 ext {
     // App dependencies
+    espressoVersion = '3.0.2'
+    mockitoVersion = '1.10.19'
+    hamcrestVersion = '1.3'
     butterKnife = '8.8.1'
     guavaVersion = '18.0'
     roomVersion = "1.1.1"
     daggerVersion = '2.16'
+    testRunnerVersion = '1.0.1'
+    testRulesVersion = '1.0.1'
     retrofitVersion = '2.3.0'
+    junitVersion = '4.12'
     gsonVersion = '2.8.5'
     gsonConverterVersion = '2.1.0'
 }
