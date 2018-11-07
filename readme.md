@@ -1,6 +1,6 @@
 # Bring My Umbrella
 
-An app to let you know where you should take your umbrella with you.
+An app to let you know when you should take your umbrella with you.
 
 <a style="margin-bottom: 0;" href='https://play.google.com/store/apps/details?id=com.pefdneves.bringmyumbrella'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="80px"/></a>
 
