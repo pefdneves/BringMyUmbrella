@@ -219,6 +219,7 @@ public class UiUtils {
         alert.setMessage(text);
 
         final EditText input = new EditText(context);
+        input.setId(R.id.et_popup);
         alert.setView(input);
 
         alert.setPositiveButton(context.getString(R.string.OK), new DialogInterface.OnClickListener() {
