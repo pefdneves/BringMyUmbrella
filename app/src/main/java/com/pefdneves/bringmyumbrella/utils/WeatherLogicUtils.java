@@ -38,7 +38,7 @@ public class WeatherLogicUtils {
     }
 
     public static boolean iconEqualsRain(String icon) {
-        return icon.equals(UiUtils.rain0) || icon.equals(UiUtils.rain1) || icon.equals(UiUtils.rain2) || icon.equals(UiUtils.rain3);
+        return icon.equals(UiUtils.rain0) || icon.equals(UiUtils.rain1) || icon.equals(UiUtils.rain2) || icon.equals(UiUtils.rain3) || icon.equals(UiUtils.snow0) || icon.equals(UiUtils.snow1);
     }
 
     /**
