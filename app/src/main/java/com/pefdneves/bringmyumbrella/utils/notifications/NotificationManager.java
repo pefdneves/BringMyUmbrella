@@ -67,6 +67,8 @@ public class NotificationManager {
         builder.setSmallIcon(R.drawable.icons8_keep_dry_96);
         builder.setLargeIcon(getAppIconBitmap(context));
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+        Intent resultIntent = new Intent(context, BringMainActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
         stackBuilder.addParentStack(BringMainActivity.class);
         PendingIntent resultPendingIntent =
                 stackBuilder.getPendingIntent(
