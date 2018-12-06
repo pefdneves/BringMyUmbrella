@@ -103,16 +103,38 @@ public class BringMainActivity extends BaseActivity implements BringMainContract
 
     @Override
     public void showForecast(List<DayForecast> forecastList, boolean useCelsius) {
-        iconToBackground = forecastList.get(1).getIcon();
-        mMainActivityLayout.setBackground(UiUtils.convertIconToBackground(this, forecastList.get(1).getIcon()));
-        mTvTodayStatus.setText(UiUtils.convertWeatherIconToStatus(this, forecastList.get(1).getIcon()));
-        mIvTodayUmbrella.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(1).getIcon()));
-        mIvTodayUmbrella.setContentDescription(UiUtils.convertWeatherIconToStatus(this, forecastList.get(1).getIcon()));
-        mTvForecastToday.setText(UiUtils.convertWeatherIconToForecast(this, forecastList.get(0).getIcon()));
-        mTvLocation.setText(forecastList.get(0).getLocation());
-        mTvTemperatureToday.setText(UiUtils.convertTemperatureToUiText(this, forecastList.get(0).getTemperature(), useCelsius));
-        mIvTomorrowStatus.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(2).getIcon()));
-        mIvAfterStatus.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(3).getIcon()));
+        if (forecastList == null) {
+            showLoadingError();
+            return;
+        }
+        if (forecastList.get(1) != null && forecastList.get(1).getIcon() != null) {
+            iconToBackground = forecastList.get(1).getIcon();
+            mMainActivityLayout.setBackground(UiUtils.convertIconToBackground(this, forecastList.get(1).getIcon()));
+            mTvTodayStatus.setText(UiUtils.convertWeatherIconToStatus(this, forecastList.get(1).getIcon()));
+            mIvTodayUmbrella.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(1).getIcon()));
+            mIvTodayUmbrella.setContentDescription(UiUtils.convertWeatherIconToStatus(this, forecastList.get(1).getIcon()));
+        } else {
+            showLoadingError();
+        }
+        if (forecastList.get(0) != null) {
+            if (forecastList.get(0).getIcon() != null)
+                mTvForecastToday.setText(UiUtils.convertWeatherIconToForecast(this, forecastList.get(0).getIcon()));
+            if (forecastList.get(0).getLocation() != null)
+                mTvLocation.setText(forecastList.get(0).getLocation());
+            mTvTemperatureToday.setText(UiUtils.convertTemperatureToUiText(this, forecastList.get(0).getTemperature(), useCelsius));
+        } else {
+            showLoadingError();
+        }
+        if (forecastList.get(2) != null && forecastList.get(2).getIcon() != null) {
+            mIvTomorrowStatus.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(2).getIcon()));
+        } else {
+            showLoadingError();
+        }
+        if (forecastList.get(3) != null && forecastList.get(3).getIcon() != null) {
+            mIvAfterStatus.setImageDrawable(UiUtils.convertWeatherIconToDrawable(this, forecastList.get(3).getIcon()));
+        } else {
+            showLoadingError();
+        }
     }
 
     @Override
